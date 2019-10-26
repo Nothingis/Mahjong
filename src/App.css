@@ -13,6 +13,26 @@
 .App-intro {
   font-size: large;
 }
+.homeText {
+  margin: 10px;
+}
+.homeOption {
+  list-style: none;
+}
+.homeButton {
+  color: #494949;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #ffffff;
+  padding: 20px;
+  border: 4px solid #494949;
+  display: inline-block;
+  width: 200px;
+  margin: 10px;
+  height: 80px;
+  font-size: large;
+  vertical-align: middle;
+}
 
 @keyframes spin {
   from {

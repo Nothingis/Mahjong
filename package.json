@@ -1,5 +1,5 @@
 {
-  "name": "gamezip",
+  "name": "practice",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -42,5 +42,5 @@
     "eslint-plugin-standard": "^4.0.1",
     "gh-pages": "^2.1.1"
   },
-  "homepage": "http://nothingis.github.io/practice"
+  "homepage": "./"
 }
