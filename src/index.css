@@ -135,15 +135,18 @@ body {
   padding: 0 0.2em 0em 1em;
   display: inline-block;
 }
-.tileCall,
 .tile {
   border: 2px solid black;
   border-radius: 5%;
   background-color: white;
-  height: 5em;
-  /* display: inline-block; */
+  height: 4em;
 }
-
+.tileMobile {
+  border: 2px solid black;
+  border-radius: 5%;
+  background-color: white;
+  height: 2em;
+}
 .tileSet{
   display: inline-block;
   overflow: auto;

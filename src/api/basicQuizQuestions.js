@@ -25,7 +25,7 @@ const basicQuizQuestions = [
     answers: [
       {
         type: "correct",
-        content: "1, 9 수패를 가지지 않을 것"
+        content: "요구패(귀족패)를 가지지 않을 것"
       },
       {
         type: "wrong1",
@@ -67,7 +67,7 @@ const basicQuizQuestions = [
     answers: [
       {
         type: "correct",
-        content: "친이 남 커쯔로 족보를 완성"
+        content: "친이 남 커쯔를 가진채로 멘젠쯔모"
       },
       {
         type: "wrong1",
@@ -79,7 +79,7 @@ const basicQuizQuestions = [
       },
       {
         type: "wrong3",
-        content: "치로 인해 내 순서가 생략"
+        content: "치로 인해 누군가의 순서가 생략"
       }
     ]
   },

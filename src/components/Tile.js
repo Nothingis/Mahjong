@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { tileDra, tileWind, tileMan, tilePin, tileSou, Blank } from './TileObject';
+import { isMobile } from 'react-device-detect';
 
 export default function Tile(props) {
-  function getTile(name) {
+  function getTile(name, isCalled) {
     const prefix = name.substring(0, 1);
+    // if(isCalled)
     if (prefix === "만") {
       const n = Number(name.substring(1, 2)) - 1;
       return tileMan[n];
@@ -35,17 +37,15 @@ export default function Tile(props) {
       }
     }
   }
-  function getClass(env, form) {
+  function getClass(env) {
     if (env) return "envTile";
-    switch (form) {
-      case "울기":
-        return "tileCall";
-      default:
-        return "tile";
-    }
+    if (isMobile)
+      return "tileMobile"
+    else
+      return "tile";
   }
   return (
-    <img className={getClass(props.env, props.form)} src={getTile(props.tile)} alt="Tile" />
+    <img className={getClass(props.env)} src={getTile(props.tile, props.isCalled)} alt="Tile" />
   );
 }
 
@@ -53,5 +53,5 @@ export default function Tile(props) {
 Tile.propTypes = {
   env: PropTypes.bool.isRequired,
   tile: PropTypes.string.isRequired,
-  form: PropTypes.string.isRequired
+  isCalled: PropTypes.bool.isRequired
 };
