@@ -1,4 +1,4 @@
-const quizQuestions = [
+const basicQuizQuestions = [
   {
     question: "다음 중 멘젠이 아닌 것은?",
     answers: [
@@ -79,7 +79,7 @@ const quizQuestions = [
       },
       {
         type: "wrong3",
-        content: "내 다음 사람이 내 이전 사람의 버림 패를 치해서 내 순서가 생략"
+        content: "치로 인해 내 순서가 생략"
       }
     ]
   },
@@ -147,4 +147,4 @@ const quizQuestions = [
     ]
   },
 ];
-export default quizQuestions;
+export default basicQuizQuestions;

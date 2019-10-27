@@ -22,7 +22,7 @@ export default function Quiz(props) {
       <QuestionCount
         counter={props.questionId}
         total={props.questionTotal} />
-      <Question content={props.question} />
+      <Question quizId={props.quizId} content={props.question} />
       <ul className="answerOptions">
         {props.answerOptions.map(renderAnswerOptions)}
       </ul>
@@ -32,6 +32,7 @@ export default function Quiz(props) {
 
 
 Quiz.propTypes = {
+  quizId: PropTypes.string.isRequired,
   answer: PropTypes.string.isRequired,
   answerOptions: PropTypes.array.isRequired,
   question: PropTypes.string.isRequired,

@@ -1,0 +1,44 @@
+import WindE from "../svg/WindE.svg";
+import WindS from "../svg/WindS.svg";
+import WindW from "../svg/WindW.svg";
+import WindN from "../svg/WindN.svg";
+import DraW from "../svg/DragonWhite.svg";
+import DraG from "../svg/DragonGreen.svg";
+import DraR from "../svg/DragonRed.svg";
+import Man1 from "../svg/Man1.svg";
+import Man2 from "../svg/Man2.svg";
+import Man3 from "../svg/Man3.svg";
+import Man4 from "../svg/Man4.svg";
+import Man5 from "../svg/Man5.svg";
+import Man6 from "../svg/Man6.svg";
+import Man7 from "../svg/Man7.svg";
+import Man8 from "../svg/Man8.svg";
+import Man9 from "../svg/Man9.svg";
+import Pin1 from "../svg/Pin1.svg";
+import Pin2 from "../svg/Pin2.svg";
+import Pin3 from "../svg/Pin3.svg";
+import Pin4 from "../svg/Pin4.svg";
+import Pin5 from "../svg/Pin5.svg";
+import Pin6 from "../svg/Pin6.svg";
+import Pin7 from "../svg/Pin7.svg";
+import Pin8 from "../svg/Pin8.svg";
+import Pin9 from "../svg/Pin9.svg";
+import Sou1 from "../svg/Sou1.svg";
+import Sou2 from "../svg/Sou2.svg";
+import Sou3 from "../svg/Sou3.svg";
+import Sou4 from "../svg/Sou4.svg";
+import Sou5 from "../svg/Sou5.svg";
+import Sou6 from "../svg/Sou6.svg";
+import Sou7 from "../svg/Sou7.svg";
+import Sou8 from "../svg/Sou8.svg";
+import Sou9 from "../svg/Sou9.svg";
+
+import Blank from "../svg/Blank.svg";
+
+const tileDra = [DraW, DraG, DraR];
+const tileWind = [WindE, WindS, WindW, WindN];
+const tileMan = [Man1, Man2, Man3, Man4, Man5, Man6, Man7, Man8, Man9];
+const tilePin = [Pin1, Pin2, Pin3, Pin4, Pin5, Pin6, Pin7, Pin8, Pin9];
+const tileSou = [Sou1, Sou2, Sou3, Sou4, Sou5, Sou6, Sou7, Sou8, Sou9];
+
+export { tileDra, tileWind, tileMan, tilePin, tileSou, Blank };

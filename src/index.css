@@ -114,6 +114,40 @@ body {
   background-size: 27px;
   border-color: #8bc53f;
 }
+.envInfo {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.envTile {
+  border: 2px solid black;
+  border-radius: 5%;
+  background-color: white;
+  height: 2em;
+  /* display: inline-block; */
+}
+.questionText {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+.tileInfoText {
+  margin: 0;
+  padding: 0 0.2em 0em 1em;
+  display: inline-block;
+}
+.tileCall,
+.tile {
+  border: 2px solid black;
+  border-radius: 5%;
+  background-color: white;
+  height: 5em;
+  /* display: inline-block; */
+}
+
+.tileSet{
+  display: inline-block;
+  overflow: auto;
+}
 
 /* Animation */
 .fade-enter {
