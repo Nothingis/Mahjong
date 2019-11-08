@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import basicQuizQuestions from './api/basicQuizQuestions';
 import scoringQuizQuestions from './api/scoringQuizQuestions';
+import panQuizQuestions from './api/panQuizQuestions';
 import logo from './svg/Pin1.svg';
 import Quiz from './components/Quiz';
 import Result from './components/Result';
@@ -11,6 +12,7 @@ export default class App extends Component {
     super(props);
     this.state = {
       quizId: '',
+      quizIdString: '마작 퀴즈',
       currentQuiz: {},
       // user가 풀 문제의 수
       questionCount: 7,
@@ -29,26 +31,28 @@ export default class App extends Component {
     this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
   }
 
-  componentDidMount() {
-    // const questionCount = (this.state.questionCount > basicQuizQuestions.length) ? basicQuizQuestions.length : this.state.questionCount;
-    const shuffledAnswerOptions = basicQuizQuestions.map((question) => this.shuffleArray(question.answers));
-    this.setState({
-      question: basicQuizQuestions[0].question,
-      answerOptions: shuffledAnswerOptions[0]
-    });
-  }
-
   setQuiz = (event) => {
     const quizId = event.target.id;
-    const currentQuiz = (quizId === "basic") ? basicQuizQuestions : scoringQuizQuestions;
+    const quizIdString = event.target.value;
+    const currentQuiz =
+      quizId === 'basic'
+        ? basicQuizQuestions
+        : quizId === 'scoring'
+        ? scoringQuizQuestions
+        : panQuizQuestions;
     const questionCount = (this.state.questionCount > currentQuiz.length) ? currentQuiz.length : this.state.questionCount;
-    const shuffledAnswerOptions = currentQuiz.map((question) => this.shuffleArray(question.answers));
+    let answerOptions = currentQuiz.map(question => question.answers);
+    if (quizId === 'basic' || quizId === 'scoring')
+      answerOptions = currentQuiz.map(question =>
+        this.shuffleArray(question.answers)
+      );
     this.setState({
       quizId: quizId,
+      quizIdString: quizIdString,
       currentQuiz: currentQuiz,
       questionCount: questionCount,
       question: currentQuiz[0].question,
-      answerOptions: shuffledAnswerOptions[0]
+      answerOptions: answerOptions[0]
     });
   }
   shuffleArray(array) {
@@ -81,8 +85,6 @@ export default class App extends Component {
 
   handleAnswerSelected(event) {
     this.setUserAnswer(event.currentTarget.value);
-    console.log(this.state.counter);
-    console.log(basicQuizQuestions.length);
     if (this.state.counter < this.state.currentQuiz.length - 1) {
       setTimeout(() => this.setNextQuestion(), 300);
     } else {
@@ -90,7 +92,6 @@ export default class App extends Component {
     }
   }
   setUserAnswer(answer) {
-    console.log(answer);
     const correctCount = (answer === "correct") ? this.state.correctCount + 1 : this.state.correctCount;
     this.setState({
       answer: answer,
@@ -99,26 +100,10 @@ export default class App extends Component {
   }
 
   getResults() {
-    /*
-    const answersCount = this.state.answersCount;
-    const answersCountKeys = Object.keys(answersCount);
-    const answersCountValues = answersCountKeys.map(key => answersCount[key]);
-    const maxAnswerCount = Math.max.apply(null, answersCountValues);
-
-    //return answersCountKeys.filter(key => answersCount[key] === maxAnswerCount);
-    */
     return this.state.correctCount;
   }
 
   setResults(result) {
-    /*
-    if (result.length === 1) {
-      this.setState({ result: result[0] });
-    } else {
-      this.setState({ result: 'Undetermined' });
-    }
-    */
-
     let res = (this.state.questionCount - result) + "개 틀렸습니다.";
     if (result === this.state.questionCount)
       res = "축하합니다~! 모두 다 맞았습니다.";
@@ -130,8 +115,9 @@ export default class App extends Component {
       <div>
         <h2 className="homeText"> 퀴즈를 선택하세요</h2>
         <li className="homeOption">
-          <input type="button" className="homeButton" id="basic" value="마작기본" onClick={this.setQuiz} />
-          <input type="button" className="homeButton" id="scoring" value="마작족보" onClick={this.setQuiz} />
+          <input type="button" className="homeButton" id="basic" value="마작 기본" onClick={this.setQuiz} />
+          <input type="button" className="homeButton" id="scoring" value="마작 족보" onClick={this.setQuiz} />
+          <input type="button" className="homeButton" id="pan" value="마작 판수" onClick={this.setQuiz} />
         </li>
       </div>
     );
@@ -163,7 +149,7 @@ export default class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>마작 퀴즈</h2>
+          <h2>{this.state.quizIdString}</h2>
         </div>
         {this.state.quizId === '' ? this.renderHome() : this.state.result ? this.renderResult() : this.renderQuiz()}
       </div>

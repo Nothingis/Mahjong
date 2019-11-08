@@ -135,17 +135,25 @@ body {
   padding: 0 0.2em 0em 1em;
   display: inline-block;
 }
+.tileMobile,
+.tileCalled,
+.tileMobileCalled,
 .tile {
   border: 2px solid black;
   border-radius: 5%;
   background-color: white;
+}
+.tile{
   height: 4em;
 }
+.tileCalled {
+  width: 4em;
+}
 .tileMobile {
-  border: 2px solid black;
-  border-radius: 5%;
-  background-color: white;
   height: 2em;
+}
+.tileMobileCalled {
+  width: 2em;
 }
 .tileSet{
   display: inline-block;
